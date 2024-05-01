@@ -1,0 +1,77 @@
+class Teacher:
+    def __init__(self, id, name, subject, exp_years):
+        self.teacher_code = id
+        self.teacher_name = name
+        self.subject_taught = subject
+        self.experience_years = exp_years
+
+    def display(self):
+        print("Teacher ID:", self.teacher_code)
+        print("Teacher Name:", self.teacher_name)
+        print("Subject Taught:", self.subject_taught)
+        print("Experience Years:", self.experience_years)
+        print()
+
+
+class Professor(Teacher):
+    def __init__(self, id, name, subject, exp_years, team_size):
+        super().__init__(id, name, subject, exp_years)
+        self.team = [None] * team_size
+        self.total_teachers = 0
+
+    def add_teacher_to_team(self, teacher):
+        if self.total_teachers < len(self.team):
+            self.team[self.total_teachers] = teacher
+            self.total_teachers += 1
+        else:
+            print("Team is full, cannot add more teachers.")
+
+    def manage(self):
+        total_credit_hours = sum(teacher.experience_years * 2 for teacher in self.team if teacher)
+        print("Total credit hours for the team:", total_credit_hours)
+
+    def display_courses_taught(self):
+        print("Courses taught by each teacher:")
+        for teacher in self.team:
+            if teacher:
+                print("Teacher Name:", teacher.teacher_name)
+                print("Subject Taught:", teacher.subject_taught)
+                print()
+
+
+def main():
+    # Get professor details from the user
+    id = input("Enter Professor ID: ")
+    name = input("Enter Professor Name: ")
+    subject = input("Enter Professor Subject: ")
+    exp_years = int(input("Enter Professor Experience Years: "))
+    team_size = int(input("Enter Team Size: "))
+
+    # Create a professor
+    professor = Professor(id, name, subject, exp_years, team_size)
+
+    # Get details of teachers for the professor's team from the user
+    for i in range(team_size):
+        print(f"\nEnter details for Teacher {i+1}:")
+        id = input("Enter Teacher ID: ")
+        name = input("Enter Teacher Name: ")
+        subject = input("Enter Subject Taught: ")
+        exp_years = int(input("Enter Experience Years: "))
+        teacher = Teacher(id, name, subject, exp_years)
+        professor.add_teacher_to_team(teacher)
+
+    # Display information about the professor
+    print("\nInformation of the professor:")
+    professor.display()
+
+    # Manage the professor's team
+    print("\nManaging the professor's team:")
+    professor.manage()
+
+    # Display information about courses taught by each teacher in the team
+    print("\nCourses taught by each teacher in the team:")
+    professor.display_courses_taught()
+
+
+if __name__ == "__main__":
+    main()
