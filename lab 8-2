@@ -1,0 +1,37 @@
+hand = open("C:/Users/mkom8/Downloads/sample.txt","w")
+
+n = int(input("How many students' information do you want to enter? "))
+
+for i in range(n):
+    name = input(f"Enter the name of student {i+1}: ")
+    dob = input(f"Enter the date of birth of {name}: ")
+    gender = input(f"Enter the gender of {name}: ")
+    code = input(f"Enter the code of {name}: ")
+    hand.write(f"{code}, {name}, {dob}, {gender}\n")
+    print(name, dob, gender, code)
+
+hand.close()
+hand = open("C:/Users/mkom8/Downloads/sample.txt","r")
+for line in hand:
+    code, name, dob, gender = line.strip().split(',')
+    print(f"Code: {code}, Name: {name}, Gender: {gender}")
+hand.close()
+hand = open("C:/Users/mkom8/Downloads/sample.txt","r")
+text = hand.read()
+hand.close()
+
+num_count = sum(c.isdigit() for c in text)
+print("Number count:", num_count)
+from docx import Document
+
+doc = Document()
+doc.add_heading('Student Information', 0)
+
+hand = open("C:/Users/mkom8/Downloads/sample.txt","r")
+for line in hand:
+    code, name, dob, gender = line.strip().split(',')
+    doc.add_paragraph(f'Code: {code}, Name: {name}, Date of Birth: {dob}, Gender: {gender}')
+
+hand.close()
+
+doc.save('C:/Users/mkom8/Downloads/student_info.docx')
