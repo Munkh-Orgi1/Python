@@ -5,7 +5,7 @@ from googletrans import Translator
 translator = Translator()
 
 # Open the file for writing student information, using utf-8 encoding
-hand = open("C:/Users/mkom8/Downloads/sample.txt", "w", encoding="utf-8")
+hand = open("C:/Users/mkom8/Downloads/Oyutni medeelel/sample.txt", "w", encoding="utf-8")
 
 # Getting the number of students' information to input
 n = int(input("Та хэдэн оюутны мэдээллийг оруулахыг хүсч байна? "))
@@ -23,7 +23,7 @@ for i in range(n):
 hand.close()
 
 # Open the file for reading student information, using utf-8 encoding
-hand = open("C:/Users/mkom8/Downloads/sample.txt", "r", encoding="utf-8")
+hand = open("C:/Users/mkom8/Downloads/Oyutni medeelel/sample.txt", "r", encoding="utf-8")
 
 # Displaying the student information
 for line in hand:
@@ -34,7 +34,7 @@ for line in hand:
 hand.close()
 
 # Counting the number of digits in the file
-hand = open("C:/Users/mkom8/Downloads/sample.txt", "r", encoding="utf-8")
+hand = open("C:/Users/mkom8/Downloads/Oyutni medeelel/sample.txt", "r", encoding="utf-8")
 text = hand.read()
 hand.close()
 num_count = sum(c.isdigit() for c in text)
@@ -46,7 +46,7 @@ from docx import Document
 doc = Document()
 doc.add_heading('Student Information', 0)
 
-hand = open("C:/Users/mkom8/Downloads/sample.txt", "r", encoding="utf-8")
+hand = open("C:/Users/mkom8/Downloads/Oyutni medeelel/sample.txt", "r", encoding="utf-8")
 for line in hand:
     code, name, dob, gender = line.strip().split(',')
     # Translate each line before adding it to the document
@@ -57,4 +57,4 @@ for line in hand:
 hand.close()
 
 # Saving the Word document
-doc.save('C:/Users/mkom8/Downloads/student_info.docx')
+doc.save('C:/Users/mkom8/Downloads/Oyutni medeelel/sample.docx')
