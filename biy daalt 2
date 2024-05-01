@@ -21,7 +21,7 @@ class CalculatorApp:
         ]
 
         for (text, row, col) in buttons_section_1:
-            button = tk.Button(master, text=text, font=('Arial', 18), command=lambda t=text: self.on_button_click(t))
+            button = tk.Button(master, text=text, font=('Arial', 18), bg='lightblue', fg='black', command=lambda t=text: self.on_button_click(t))
             button.grid(row=row, column=col, padx=5, pady=5, ipadx=20, ipady=15)
 
         # Create buttons for advanced functions (Section 2)
@@ -34,11 +34,11 @@ class CalculatorApp:
         ]
 
         for (text, row, col) in buttons_section_2:
-            button = tk.Button(master, text=text, font=('Arial', 18), command=lambda t=text: self.on_button_click(t))
+            button = tk.Button(master, text=text, font=('Arial', 18), bg='lightblue', fg='black', command=lambda t=text: self.on_button_click(t))
             button.grid(row=row, column=col, padx=5, pady=5, ipadx=20, ipady=15)
 
         # Create clear button (Section 3)
-        clear_button = tk.Button(master, text='C', font=('Arial', 18), command=self.clear_entry)
+        clear_button = tk.Button(master, text='C', font=('Arial', 18), bg='red', fg='white', command=self.clear_entry)
         clear_button.grid(row=8, column=0, columnspan=6, padx=5, pady=5, sticky="ew", ipady=15)
 
     # Function to handle button clicks
