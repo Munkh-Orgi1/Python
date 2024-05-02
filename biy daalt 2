@@ -13,19 +13,19 @@ class CalculatorApp:
         self.entry.grid(row=0, column=0, columnspan=6, padx=10, pady=10, ipady=20)
 
         # Create buttons for arithmetic operations (Section 1)
-        buttons_section_1 = [
+        self.buttons_section_1 = [
             ('7', 1, 0), ('8', 1, 1), ('9', 1, 2), ('/', 1, 3),
             ('4', 2, 0), ('5', 2, 1), ('6', 2, 2), ('*', 2, 3),
             ('1', 3, 0), ('2', 3, 1), ('3', 3, 2), ('-', 3, 3),
             ('0', 4, 0), ('.', 4, 1), ('=', 4, 2), ('+', 4, 3)
         ]
 
-        for (text, row, col) in buttons_section_1:
-            button = tk.Button(master, text=text, font=('Arial', 18), bg='lightblue', fg='black', command=lambda t=text: self.on_button_click(t))
-            button.grid(row=row, column=col, padx=5, pady=5, ipadx=20, ipady=15)
+        self.advanced_buttons = []  # Initialize advanced buttons list
+
+        self.create_buttons(self.buttons_section_1)
 
         # Create buttons for advanced functions (Section 2)
-        buttons_section_2 = [
+        self.buttons_section_2 = [
             ('!', 1, 4), ('π', 1, 5), ('%', 2, 4), ('(', 2, 5),
             (')', 3, 4), ('x²', 3, 5), ('√', 4, 4), ('^', 4, 5),
             ('sin', 5, 0), ('cos', 5, 1), ('tan', 5, 2), ('sin⁻¹', 5, 3),
@@ -33,13 +33,14 @@ class CalculatorApp:
             ('ln', 7, 0), ('log', 7, 1)
         ]
 
-        for (text, row, col) in buttons_section_2:
-            button = tk.Button(master, text=text, font=('Arial', 18), bg='lightblue', fg='black', command=lambda t=text: self.on_button_click(t))
-            button.grid(row=row, column=col, padx=5, pady=5, ipadx=20, ipady=15)
+        self.create_buttons(self.buttons_section_2)
 
         # Create clear button (Section 3)
         clear_button = tk.Button(master, text='C', font=('Arial', 18), bg='red', fg='white', command=self.clear_entry)
         clear_button.grid(row=8, column=0, columnspan=6, padx=5, pady=5, sticky="ew", ipady=15)
+
+        # Bind the zoom button event
+        master.bind("<Control-plus>", self.toggle_advanced_buttons)
 
     # Function to handle button clicks
     def on_button_click(self, value):
@@ -102,9 +103,25 @@ class CalculatorApp:
     def clear_entry(self):
         self.entry.delete(0, tk.END)
 
+    # Function to toggle the visibility of advanced buttons
+    def toggle_advanced_buttons(self, event):
+        if self.advanced_buttons:
+            for button in self.advanced_buttons:
+                if button.grid_info():
+                    button.grid_forget()
+                else:
+                    button.grid(row=button.grid_info()["row"], column=button.grid_info()["column"], padx=5, pady=5, ipadx=20, ipady=15)
+        else:
+            self.create_buttons(self.buttons_section_2)
+
+    # Function to create buttons based on button data
+    def create_buttons(self, button_data):
+        for (text, row, col) in button_data:
+            button = tk.Button(self.master, text=text, font=('Arial', 18), bg='lightblue', fg='black', command=lambda t=text: self.on_button_click(t))
+            button.grid(row=row, column=col, padx=5, pady=5, ipadx=20, ipady=15)
+            self.advanced_buttons.append(button)
 
 # Create the main window and start the application
 root = tk.Tk()
-root.geometry("500x600")  # Set window size
 app = CalculatorApp(root)
 root.mainloop()
