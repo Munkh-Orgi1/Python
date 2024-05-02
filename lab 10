@@ -1,0 +1,36 @@
+import turtle
+tr = turtle.Turtle()
+turtle.setup(width=600, height=400) 
+tr.pensize(10)
+tr.color("blue")
+tr.penup()
+tr.goto(-110, -25)
+tr.pendown()
+tr.circle(45)
+
+tr.color("black")
+tr.penup()
+tr.goto(0, -25)
+tr.pendown()
+tr.circle(45)
+
+
+tr.color("red")
+tr.penup()
+tr.goto(110, -25)
+tr.pendown()
+tr.circle(45)
+
+
+tr.color("yellow")
+tr.penup()
+tr.goto(-55, -75)
+tr.pendown()
+tr.circle(45)
+
+tr.color("green")
+tr.penup()
+tr.goto(55, -75)
+tr.pendown()
+tr.circle(45)
+turtle.done()
