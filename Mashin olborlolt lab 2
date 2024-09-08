@@ -1,0 +1,152 @@
+1)
+def f_named(x):
+    return x**2 + 3
+
+
+f_lambda = lambda x: x**2 + 3
+
+
+x_value = 5
+
+
+print("named:", f_named(x_value))
+
+
+print("lambda:", f_lambda(x_value))
+
+2)
+def user_division():
+    try:
+        # Get user input for two integers
+        x = int(input("Enter the first number (x): "))
+        y = int(input("Enter the second number (y): "))
+        
+        # Check if y is divisible by x
+        if y % x == 0:
+            print(f"{y} / {x} = {y / x}")
+        
+        # Check if x is divisible by y
+        elif x % y == 0:
+            print(f"{x} / {y} = {x / y}")
+        
+        # Print error if neither divides the other evenly
+        else:
+            print("Error")
+    
+    except ZeroDivisionError:
+        print("Division by zero is not allowed.")
+    except ValueError:
+        print("Please enter valid integers.")
+
+# Call the function
+user_division()
+3)
+def func(s):
+    # Remove leading '-' or '+' and any decimal point, if present
+    if s[0] in ['-', '+']:
+        s = s[1:]  # Remove the sign if it's there
+    
+    # Check if it's a decimal number
+    if '.' in s:
+        s = s.replace('.', '', 1)  # Remove one decimal point
+    
+    # Check if the remaining string consists only of digits
+    return s.isdigit()
+
+# Test cases based on your examples
+print(func('26587'))    # True
+print(func('4.2365'))   # True
+print(func('-12547'))   # True
+print(func('00'))       # True
+print(func('A001'))     # False
+print(func('001'))      # True
+4)
+# 1: Жагсаалт үүсгэх a
+a = ["Bat", "Bold", "Naraa", "Bolor"]
+
+# 2: a жагсаалтын утгыг b жагсаалтад хуулна 
+b = a.copy()
+
+# 3: Жагсаалтад байгаа утгыг өөрчлөх b
+b[1] = "Changed Bold"
+
+# 4: a болон b жагсаалтыг хэвлэ
+print("List a:", a)
+print("List b:", b)
+
+# 5: a жагсаалтыг c жагсаалтад оноох
+c = a
+
+# 6: c жагсаалт дахь утгыг өөрчлөх
+c[2] = "Changed Naraa"
+
+# 7: a болон c жагсаалтыг хэвлэ
+print("List a after modifying c:", a)
+print("List c:", c)
+5)
+def print_even_numbers():
+    for number in range(0, 51):
+        if number % 2 == 0:
+            print(number)
+
+print_even_numbers()
+6)
+import datetime
+
+now = datetime.datetime.now()
+
+formatted_time = now.strftime("%Y-%m-%d %H:%M:%S.%f")
+
+date_time_list = formatted_time.replace('-', ' ').replace(':', ' ').split()
+
+print(date_time_list)
+7)
+a = input("Enter a sentence: ")
+word_list = a.split() 
+print(word_list)
+8)
+# 1: Өөр өөр тооны гишүүдтэй 3 баг үүсгэнэ
+team1 = ['Bat', 'Bold', 'Saraa', 'Ganaa', 'Dulam']
+team2 = ['Onon']
+team3 = ['Solongo', 'Bulganaa']
+
+# Бүх багийг нэг жагсаалтад нэгтгэнэ
+teams = [team1, team2, team3]
+print("Баг бүрийн мэдээллийг нэг жагсаалтад оруулсны дараа")
+print(teams)
+
+# 2: Багийн хамгийн дээд хэмжээг олно
+max_team_size = max(len(team) for team in teams)
+
+# 3: Цөөн гишүүнтэй багуудад шинэ гишүүд нэмнэ
+team2.extend(['Saran', 'Saikhnaa', 'Zaya', 'Purev'])  # Fill team 2
+team3.extend(['Sarnai', 'Erdene', 'Khishgee'])         # Fill team 3
+
+# 4: Багуудыг дахин нэгтгэж, шинэчилсэн жагсаалтыг хэвлэх
+updated_teams = [team1, team2, team3]
+print("\nБүх багууд ижил тооны гишүүдтэй болмогц")
+print(updated_teams)
+
+# 5: Баг бүрийг гишүүдийн нэрээр эрэмбэл
+for team in updated_teams:
+    team.sort()
+
+# 6: Багийн гишүүдийг эрэмбэлсэн хэвлэх
+print("\nБаг бүрийг гишүүний нэрээр эрэмбэлсэн хэвлэ")
+for team in updated_teams:
+    for member in team:
+        print(member)
+    print()  # Баг бүрийн араас шинэ мөр
+9)
+anket1 = {'Bat': '18', 'Ankhaa': '26'}
+anket2 = {'Dorj': '16', 'Bold': '35'}
+
+# Судалгаа1 болон судалгаа2-г нэгтгэнэ
+merged_dict = {**anket1, **anket2}
+
+# Толь бичгийг товчлуураар нь ангил
+sorted_dict = dict(sorted(merged_dict.items()))
+
+# Түлхүүр-утга хос бүрийг хэвлэ
+for key, value in sorted_dict.items():
+    print(f"{key}: {value}")
