@@ -150,3 +150,33 @@ sorted_dict = dict(sorted(merged_dict.items()))
 # Түлхүүр-утга хос бүрийг хэвлэ
 for key, value in sorted_dict.items():
     print(f"{key}: {value}")
+
+# Step 1: Create teams with different numbers of members
+team1 = ['Alice', 'Bob']
+team2 = ['Charlie', 'David', 'Eva']
+team3 = ['Frank']
+team4 = ['Grace', 'Hannah', 'Ivy', 'Jack']
+team5 = ['Kim', 'Leo']
+
+# Step 2: Create a single list of all teams
+all_teams = [team1, team2, team3, team4, team5]
+
+# Step 3: Print the current list of all teams
+print("Initial teams:")
+for i, team in enumerate(all_teams, 1):
+    print(f"Team {i}: {team}")
+
+# Step 4: Find the maximum number of members in a team
+max_members = max(len(team) for team in all_teams)
+
+# Step 5: Add new members to the teams with the maximum number of members
+for team in all_teams:
+    if len(team) == max_members:
+        team.append('NewMember1')
+        team.append('NewMember2')
+
+# Step 6: Sort the members of each team and print the updated list
+print("\nUpdated teams (after adding new members and sorting):")
+for i, team in enumerate(all_teams, 1):
+    team.sort()  # Sort members of each team
+    print(f"Team {i}: {team}")
