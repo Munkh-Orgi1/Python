@@ -206,3 +206,22 @@ for team in teams:
     for member in team:
         print(member)  
     print()  
+
+
+
+# Given dictionaries
+survey1 = {'Bat': '18', 'Ankhaa': '26'}
+survey2 = {'Dorj': '16', 'Bold': '35'}
+
+# Add objects from survey2 to survey1
+survey1.update(survey2)
+
+# Sort and print by key
+print("Sorted by keyword (key):")
+for key, value in sorted(survey1.items()):
+    print(f"{key}: {value}")
+
+# Sort and print by value
+print("\nSorted by value:")
+for key, value in sorted(survey1.items(), key=lambda item: item[1]):
+    print(f"{key}: {value}")
