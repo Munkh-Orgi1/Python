@@ -180,3 +180,29 @@ print("\nUpdated teams (after adding new members and sorting):")
 for i, team in enumerate(all_teams, 1):
     team.sort()  # Sort members of each team
     print(f"Team {i}: {team}")
+
+team1 = ['Bat', 'Bold', 'Dulam']  
+team2 = ['Ganaa']                   
+team3 = ['Erka', 'Nomin', 'Ganhulug', 'Hishge']  
+team4 = ['Jason', 'Sarnai']             
+team5 = ['Lhagwa', 'Molor', 'Ninjka', 'Otgoo', 'Puuje']  
+
+teams = [team1, team2, team3, team4, team5]
+print("Teams members:", teams)
+
+max_members = max(len(team) for team in teams)
+print("Maximum number of members in a team:", max_members)
+
+for i in range(len(teams)):
+    while len(teams[i]) < max_members:
+        new_member = input(f"Enter a new member for team {i + 1} (current members: {teams[i]}): ")
+        teams[i].append(new_member)
+
+print("Teams members:", teams)
+
+print("\nAll teams:")
+for team in teams:
+    team.sort() 
+    for member in team:
+        print(member)  
+    print()  
