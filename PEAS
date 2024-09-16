@@ -1,0 +1,133 @@
+import random
+
+# Даалгавар бүрээс өвлөн авдаг үндсэн агент анги
+class Agent:
+    def __init__(self, name):
+        self.name = name
+
+    def performance_measure(self):
+        pass
+
+    def actuators(self):
+        pass
+
+    def sensors(self):
+        pass
+
+    def environment(self):
+        pass
+
+    def execute(self):
+        print(f"\nExecuting {self.name}'s task")
+        self.performance_measure()
+        self.actuators()
+        self.sensors()
+        self.environment()
+
+
+# 1. Гимнастикийн шалны үзүүлбэр хийх
+class GymnasticAgent(Agent):
+    def __init__(self):
+        super().__init__('Гимнастикийн үзүүлбэр')
+
+    def performance_measure(self):
+        score = random.randint(1, 10)
+        print(f"Гимнастикийн гүйцэтгэлийн оноо: {score}/10 нарийвчлал, уран сайхны илэрхийлэл, техник дээр суурилсан.")
+
+    def actuators(self):
+        print("Хөдөлгүүрүүд: Биеийг ашиглан эргүүлэх, үсрэх, тэнцвэржүүлэх хөдөлгөөн хийх.")
+
+    def sensors(self):
+        print("Мэдрэгч: Нүд нь орон зайн мэдрэмж, чих нь хөгжим, дотоод чих нь тэнцвэртэй байдаг.")
+
+    def environment(self):
+        print("Орчин: Гимнастикийн талбайд шүүгчид болон үзэгчдийн хамт тоглолт хийх.")
+
+
+# 2. Хөл бөмбөг 
+class FootballAgent(Agent):
+    def __init__(self):
+        super().__init__('Хөл бөмбөг')
+
+    def performance_measure(self):
+        goals = random.randint(0, 5)
+        print(f"Гүйцэтгэл: {goals} оруулсан гоол, багаар ажиллах, стратегийн хэрэгжилт.")
+
+    def actuators(self):
+        print("Ажиллагчид: Өшиглөх, гүйх, дамжуулах, хөл, хөлөөрөө тэмцэх.")
+
+    def sensors(self):
+        print("Мэдрэгч: Бөмбөг болон багийнхныг хянах нүд, холбоо барих чих, мэдрэгчтэй хянах хөл.")
+
+    def environment(self):
+        print("Хүрээлэн буй орчин: Хөлбөмбөгийн талбай, эсрэг баг, багийнхан, үзэгчид, цаг агаарын нөхцөл байдал.")
+
+
+# 3. Интернет ашиглан хиймэл оюун ухааны тухай ном аваарай
+class InternetSearchAgent(Agent):
+    def __init__(self):
+        super().__init__('AI номыг интернетээс хайх')
+
+    def performance_measure(self):
+        print("Гүйцэтгэл: Зөв, холбогдох AI номыг богино хугацаанд олж авсан.")
+
+    def actuators(self):
+        print("Хөтөч: Хөтөчтэй харилцах гар, хулгана/мэдрэгч.")
+
+    def sensors(self):
+        print("Мэдрэгч: Хайлтын илэрцийг үзэх харааны дэлгэц (дэлгэц), хулгана/гар зэрэг оролтын төхөөрөмжүүд.")
+
+    def environment(self):
+        print("Хүрээлэн буй орчин: Дижитал номын сан, цахим худалдааны платформ, хайлтын систем, интернет холболт.")
+
+
+# 4. Ханатай теннис тоглох
+class TennisWithWallsAgent(Agent):
+    def __init__(self):
+        super().__init__('Ханатай теннис')
+
+    def performance_measure(self):
+        successful_hits = random.randint(10, 30)
+        print(f"Гүйцэтгэл: {successful_hits} хананы эсрэг амжилттай цохилтууд.")
+
+    def actuators(self):
+        print("Хөдөлгүүрүүд: Бөмбөгийг цохихын тулд цохиурыг савлаж, биеийг хөдөлгөдөг.")
+
+    def sensors(self):
+        print("Мэдрэгч: Бөмбөгийг хянах нүд, дүүжин булчингийн санах ой, бөмбөгийг хананд цохихыг сонсох.")
+
+    def environment(self):
+        print("Орчин: Хана, теннисний бөмбөг, цохиур бүхий теннисний талбай.")
+
+
+# 5. Дуудлага худалдаагаар юмны үнийн саналыг хэлэх 
+class AuctionAgent(Agent):
+    def __init__(self):
+        super().__init__('Дуудлага худалдааны үнийн мэдэгдэл')
+
+    def performance_measure(self):
+        price = random.randint(100, 1000)
+        print(f"Гүйцэтгэл: Дуудлага худалдаанд оруулсан барааны тооцоолсон үнэ ${price}.")
+
+    def actuators(self):
+        print("Хөдөлгүүрүүд: Үнэ зарлах дуу хоолой, дохио өгөх гар.")
+
+    def sensors(self):
+        print("Мэдрэгч: Тендерийг харах нүд, тендерт оролцогчид болон дуудлага худалдаанд оролцогчдыг сонсох чих.")
+
+    def environment(self):
+        print("Хүрээлэн буй орчин: Дуудлага худалдааны өрөө эсвэл дуудлага худалдаанд оролцогчид болон дуудлага худалдаа эрхлэгчтэй онлайн дуудлага худалдааны платформ.")
+
+
+# Агент бүрт жишээ үүсгэж, даалгавр гүйцэтгэ
+agents = [
+    GymnasticAgent(),
+    FootballAgent(),
+    InternetSearchAgent(),
+    TennisWithWallsAgent(),
+    AuctionAgent()
+]
+
+# Бүх агентуудад зориулсан даалгавруудыг гүйцэтгэнэ
+for agent in agents:
+    agent.execute()
