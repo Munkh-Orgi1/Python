@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:monpay_clone/data/app_data.dart';
-import 'package:monpay_clone/screens/placeholder_screen.dart';
+import '../data/app_data.dart';
+import '../screens/placeholder_screen.dart';
 
 // -----------------------------------------------------------------------------
 // 1. Header Section (Нүүр хуудасны дээд хэсэг)

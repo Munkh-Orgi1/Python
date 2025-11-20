@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:monpay_clone/widgets/help_content_builder.dart';
+import '../widgets/help_content_builder.dart';
 
 class HelpDetailScreen extends StatelessWidget {
   final String title;

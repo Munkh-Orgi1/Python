@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:monpay_clone/screens/help_detail_screen.dart';
-import 'package:monpay_clone/screens/mobilife_screen.dart';
-import 'package:monpay_clone/screens/placeholder_screen.dart';
+import '../screens/help_detail_screen.dart';
+import '../screens/mobilife_screen.dart';
+import '../screens/placeholder_screen.dart';
 
 // -----------------------------------------------------------------------------
 // 1. Theme Data (Colors)

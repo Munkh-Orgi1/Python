@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:monpay_clone/data/app_data.dart';
-import 'package:monpay_clone/widgets/common_widgets.dart';
+import '../data/app_data.dart';
+import 'common_widgets.dart';
 
 // -----------------------------------------------------------------------------
 // 1. Banner Section (Нүүр хуудасны баннер хэсэг)

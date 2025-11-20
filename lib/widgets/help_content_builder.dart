@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:monpay_clone/screens/help_detail_screen.dart';
-import 'package:monpay_clone/widgets/common_widgets.dart';
+import '../screens/help_detail_screen.dart';
+import 'common_widgets.dart';
 
 class HelpContentBuilder {
   static HelpContent build(String type) {

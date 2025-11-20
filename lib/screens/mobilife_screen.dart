@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:monpay_clone/data/app_data.dart';
+import '../data/app_data.dart';
 
 class MobilifeScreen extends StatefulWidget {
   const MobilifeScreen({super.key});

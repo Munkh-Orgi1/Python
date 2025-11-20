@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:monpay_clone/data/app_data.dart';
-import 'package:monpay_clone/screens/placeholder_screen.dart';
-import 'package:monpay_clone/widgets/home_content.dart';
-import 'package:monpay_clone/widgets/common_widgets.dart';
+import '../data/app_data.dart';
+import 'placeholder_screen.dart';
+import '../widgets/home_content.dart';
+import '../widgets/common_widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
